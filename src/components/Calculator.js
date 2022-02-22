@@ -1,5 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
 
+import { CalculatorNumPad } from "./CalculatorNumPad";
+import { CalculatorDisplay } from "./CalculatorDisplay";
+
+const CalculatorContainer = styled.div``;
 export const Calculator = () => {
-  return <div></div>;
+  const [display, setDisplay] = useState("");
+
+  return (
+    <CalculatorContainer>
+      <CalculatorNumPad setDisplay={setDisplay} />
+      <CalculatorDisplay display={display} />
+    </CalculatorContainer>
+  );
 };
