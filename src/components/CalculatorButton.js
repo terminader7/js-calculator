@@ -23,6 +23,7 @@ export const CalculatorButton = ({
   setOperand,
   num2,
   setNum2,
+  customColor,
 }) => {
   const handleClick = () => {
     switch (type) {
@@ -37,28 +38,33 @@ export const CalculatorButton = ({
         break;
     }
   };
-  const getSpanValueColumn = () => {
-    if (type === "zero" || type === "clear") {
+  const getSpanValue = (rowOrColumn) => {
+    if (rowOrColumn === "column" && (type === "zero" || type === "clear")) {
       return 2;
-    }
-    return 1;
-  };
-  const getSpanValueRow = () => {
-    if (type === "equals") {
+    } else if (rowOrColumn === "row" && type === "equals") {
       return 2;
-    }
-    return 1;
+    } else return 1;
   };
+
+  // const getSpanValueColumn = () => {
+  //   if (type === "zero" || type === "clear") {
+  //     return 2;
+  //   }
+  //   return 1;
+  // };
+  // const getSpanValueRow = () => {
+  //   if (type === "equals") {
+  //     return 2;
+  //   }
+  //   return 1;
+  // };
   const getButtonColor = () => {
-    if (type === "equals") {
-      return "#2469c9";
-    } else if (type === "clear") {
-      return "#db2121";
-    } else if (type === "operand") {
-      return "#828181";
-    } else {
-      return "#525252";
-    }
+    return customColor ? customColor : "#525252";
+    // if (customColor) {
+    //   return customColor;
+    // } else {
+    //   return "#525252";
+    // }
   };
   return (
     <Button
@@ -66,8 +72,8 @@ export const CalculatorButton = ({
       onClick={() => {
         handleClick();
       }}
-      spanColumn={getSpanValueColumn()}
-      spanRow={getSpanValueRow()}
+      spanColumn={getSpanValue("column")}
+      spanRow={getSpanValue("row")}
       getButtonColor={getButtonColor()}
     >
       {buttonLabel}

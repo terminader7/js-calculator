@@ -22,7 +22,7 @@ export const CalculatorNumPad = ({
 }) => {
   return (
     <NumPad>
-      {numPadProperties.map(({ id, buttonLabel, value, type }) => {
+      {numPadProperties.map(({ id, buttonLabel, value, type, customColor }) => {
         return (
           <CalculatorButton
             id={id}
@@ -35,6 +35,7 @@ export const CalculatorNumPad = ({
             operand={operand}
             num2={num2}
             setNum2={setNum2}
+            customColor={customColor}
           />
         );
       })}

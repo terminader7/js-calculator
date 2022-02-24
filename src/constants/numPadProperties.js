@@ -1,6 +1,7 @@
 export default [
   {
     id: "clear",
+    customColor: "#db2121",
     value: "",
     type: "clear",
     buttonLabel: "AC",
@@ -9,12 +10,14 @@ export default [
     id: "divide",
     value: "/",
     type: "operand",
+    customColor: "#828181",
     buttonLabel: "/",
   },
   {
     id: "multiply",
     value: "X",
     type: "operand",
+    customColor: "#828181",
     buttonLabel: "X",
   },
   {
@@ -39,6 +42,7 @@ export default [
     id: "subtract",
     value: "-",
     type: "operand",
+    customColor: "#828181",
     buttonLabel: "-",
   },
   {
@@ -63,6 +67,7 @@ export default [
     id: "add",
     value: "+",
     type: "operand",
+    customColor: "#828181",
     buttonLabel: "+",
   },
   {
@@ -85,6 +90,7 @@ export default [
   },
   {
     id: "equals",
+    customColor: "#2469c9",
     value: "=",
     type: "equals",
     buttonLabel: "=",
