@@ -11,6 +11,7 @@ const Button = styled.button`
   grid-column: span ${(props) => props.spanColumn}; //injecting in a function, runs function, passes props as argument, if we passed a span value in our props inject it here
   grid-row: span ${(props) => props.spanRow};
   background-color: ${(props) => props.getButtonColor};
+  font-family: Arial, Helvetica, sans-serif;
 `;
 export const CalculatorButton = ({
   id,
@@ -28,13 +29,24 @@ export const CalculatorButton = ({
   const handleClick = () => {
     switch (type) {
       case "input":
-        console.log(num2);
-        console.log(value);
-        setNum1(num1 + value);
-        setNum2(num2 + value);
+      case "zero":
+        if (operand) {
+          setNum2(num2 + value);
+        } else {
+          setNum1(num1 + value);
+        }
+        console.log({ num1 });
+        console.log({ num2 });
         break;
       case "operand":
         setOperand(value);
+        break;
+      case "equals":
+        break;
+      case "clear":
+        setNum1("0");
+        setNum2("0");
+        setOperand("");
         break;
     }
   };
@@ -58,14 +70,12 @@ export const CalculatorButton = ({
   //   }
   //   return 1;
   // };
-  const getButtonColor = () => {
-    return customColor ? customColor : "#525252";
-    // if (customColor) {
-    //   return customColor;
-    // } else {
-    //   return "#525252";
-    // }
-  };
+
+  // if (customColor) {
+  //   return customColor;
+  // } else {
+  //   return "#525252";
+  // }
   return (
     <Button
       id={id}
@@ -74,7 +84,7 @@ export const CalculatorButton = ({
       }}
       spanColumn={getSpanValue("column")}
       spanRow={getSpanValue("row")}
-      getButtonColor={getButtonColor()}
+      getButtonColor={customColor || "#525252"}
     >
       {buttonLabel}
     </Button>

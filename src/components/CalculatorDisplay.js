@@ -12,10 +12,14 @@ const DisplayNumber = styled.div`
 
 export const CalculatorDisplay = ({ num1, operand, num2 }) => {
   const getDisplayValue = () => {
+    if (num2 !== "0") {
+      return num2;
+    }
     if (operand) {
+      //if operand is truthy and
       return operand;
     }
-    return num1 || num2;
+    return num1;
   };
   return <DisplayNumber>{getDisplayValue()}</DisplayNumber>;
 };
