@@ -5,17 +5,21 @@ import { CalculatorNumPad } from "./CalculatorNumPad";
 import { CalculatorDisplay } from "./CalculatorDisplay";
 
 const CalculatorContainer = styled.div`
+  display: flex;
   width: 340px;
-  height: 540px;
+  height: 600px;
   padding: 10px;
   border-radius: 10px;
   background-color: #485461;
   background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+  gap: 5px;
+  flex-direction: column;
 `;
 export const Calculator = () => {
   const [num1, setNum1] = useState("0");
   const [num2, setNum2] = useState("0");
   const [operand, setOperand] = useState("");
+  const [result, setResult] = useState("");
 
   // const [expression, setExpression] = useState({ another way of setting state as an object, alternative to the above
   //   num1: "0",
@@ -33,13 +37,15 @@ export const Calculator = () => {
 
   return (
     <CalculatorContainer>
+      <CalculatorDisplay num1={num1} operand={operand} num2={num2} />
       <CalculatorNumPad
         setNum1={setNum1}
         num1={num1}
         operand={operand}
         setOperand={setOperand}
+        num2={num2}
+        setNum2={setNum2}
       />
-      <CalculatorDisplay num1={num1} operand={operand} />
     </CalculatorContainer>
   );
 };
