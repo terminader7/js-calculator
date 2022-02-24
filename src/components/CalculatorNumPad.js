@@ -6,17 +6,18 @@ import { CalculatorButton } from "./CalculatorButton";
 
 const NumPad = styled.div``;
 
-export const CalculatorNumPad = ({ setDisplay }) => {
+export const CalculatorNumPad = ({ num1, setNum1 }) => {
   return (
     <NumPad>
-      {numPadProperties.map(({ id, buttonLabel, display, type }) => {
+      {numPadProperties.map(({ id, buttonLabel, value, type }) => {
         return (
           <CalculatorButton
             id={id}
             buttonLabel={buttonLabel}
-            display={display}
-            setDisplay={setDisplay}
+            value={value}
             type={type}
+            setNum1={setNum1}
+            num1={num1}
           />
         );
       })}

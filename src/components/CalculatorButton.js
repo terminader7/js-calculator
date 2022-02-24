@@ -2,31 +2,37 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
-  color: grey;
+  color: black;
 `;
 export const CalculatorButton = ({
   id,
   buttonLabel,
-  setDisplay,
-  display,
+  value,
   type,
+  setNum1,
+  num1,
 }) => {
-  const handleClick = (display, type) => {
+  const handleClick = () => {
     switch (type) {
       case "input":
-        console.log(type);
-        setDisplay(display);
+        console.log(value);
+        console.log(num1);
+        setNum1(num1 + value);
         break;
       case "operand":
-        console.log(type);
-        setDisplay(display);
+        setNum1(num1 + value);
         break;
     }
   };
 
   return (
     <div>
-      <Button id={id} onClick={handleClick(display, type)}>
+      <Button
+        id={id}
+        onClick={() => {
+          handleClick();
+        }}
+      >
         {buttonLabel}
       </Button>
     </div>

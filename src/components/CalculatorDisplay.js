@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const DisplayNumber = styled.div``;
+const DisplayNumber = styled.div`
+  color: white;
+`;
 
-export const CalculatorDisplay = ({ display }) => {
-  return <DisplayNumber>{display}</DisplayNumber>;
+export const CalculatorDisplay = ({ num1 }) => {
+  return <DisplayNumber>{num1}</DisplayNumber>;
 };
