@@ -33,8 +33,13 @@ export const Calculator = () => {
 
   return (
     <CalculatorContainer>
-      <CalculatorNumPad setNum1={setNum1} num1={num1} />
-      <CalculatorDisplay num1={num1} />
+      <CalculatorNumPad
+        setNum1={setNum1}
+        num1={num1}
+        operand={operand}
+        setOperand={setOperand}
+      />
+      <CalculatorDisplay num1={num1} operand={operand} />
     </CalculatorContainer>
   );
 };

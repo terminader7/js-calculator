@@ -11,6 +11,8 @@ export const CalculatorButton = ({
   type,
   setNum1,
   num1,
+  operand,
+  setOperand,
 }) => {
   const handleClick = () => {
     switch (type) {
@@ -20,7 +22,7 @@ export const CalculatorButton = ({
         setNum1(num1 + value);
         break;
       case "operand":
-        setNum1(num1 + value);
+        setOperand(value);
         break;
     }
   };
