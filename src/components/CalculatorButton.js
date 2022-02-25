@@ -12,6 +12,7 @@ const Button = styled.button`
   grid-row: span ${(props) => props.spanRow};
   background-color: ${(props) => props.getButtonColor};
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
 `;
 export const CalculatorButton = ({
   id,
@@ -31,21 +32,30 @@ export const CalculatorButton = ({
       case "input":
       case "zero":
         if (operand) {
-          setNum2(num2 + value);
+          if (num2.charAt(num2.length - 1) === "." && value === ".") {
+            setNum2(num2);
+          } else {
+            setNum2(num2 + value);
+          }
         } else {
-          setNum1(num1 + value);
+          if (num1.charAt(num1.length - 1) === "." && value === ".") {
+            setNum1(num1);
+          } else {
+            setNum1(num1 + value);
+          }
         }
-        console.log({ num1 });
-        console.log({ num2 });
         break;
       case "operand":
         setOperand(value);
         break;
-      case "equals":
+      case "equals": //result = num1 num2 num1 = result setNum2("0") operand num2
+        setNum1(getResult());
+        setNum2("");
+        setOperand("");
         break;
       case "clear":
-        setNum1("0");
-        setNum2("0");
+        setNum1("");
+        setNum2("");
         setOperand("");
         break;
     }
@@ -58,6 +68,18 @@ export const CalculatorButton = ({
     } else return 1;
   };
 
+  const getResult = () => {
+    switch (operand) {
+      case "+":
+        return parseFloat(num1) + parseFloat(num2);
+      case "-":
+        return parseFloat(num1) - parseFloat(num2);
+      case "X":
+        return parseFloat(num1) * parseFloat(num2);
+      case "/":
+        return parseFloat(num1) / parseFloat(num2);
+    }
+  };
   // const getSpanValueColumn = () => {
   //   if (type === "zero" || type === "clear") {
   //     return 2;

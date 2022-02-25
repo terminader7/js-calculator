@@ -9,7 +9,7 @@ const NumPad = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   background-color: black;
-  height: 80%;
+  height: 100%;
 `;
 
 export const CalculatorNumPad = ({
