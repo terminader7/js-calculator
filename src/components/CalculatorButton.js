@@ -80,24 +80,7 @@ export const CalculatorButton = ({
         return parseFloat(num1) / parseFloat(num2);
     }
   };
-  // const getSpanValueColumn = () => {
-  //   if (type === "zero" || type === "clear") {
-  //     return 2;
-  //   }
-  //   return 1;
-  // };
-  // const getSpanValueRow = () => {
-  //   if (type === "equals") {
-  //     return 2;
-  //   }
-  //   return 1;
-  // };
 
-  // if (customColor) {
-  //   return customColor;
-  // } else {
-  //   return "#525252";
-  // }
   return (
     <Button
       id={id}
